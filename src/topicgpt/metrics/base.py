@@ -75,22 +75,3 @@ class BaseMetric(ABC):
             The result of the evaluation.
         """
         pass
-
-    # @abstractmethod
-    # def score_per_topic(self, topics, **kwargs):
-    #     """
-    #     Score the metric per topic.
-
-    #     Parameters
-    #     ----------
-    #     topics : any
-    #         Topics from the model.
-    #     **kwargs : dict, optional
-    #         Additional keyword arguments.
-
-    #     Returns
-    #     -------
-    #     any
-    #         The score per topic.
-    #     """
-    #     pass

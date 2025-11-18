@@ -13,3 +13,6 @@ examples/saved_embedidngs
 tough-times.ipynb
 .gitignore
 topicgpt-venv
+examples/topic_objs.pkl
+examples/truncated_docs_topic_objs.pkl
+examples/BERTopic_20Newsgroups_openai.zip

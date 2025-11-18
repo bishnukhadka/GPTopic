@@ -377,8 +377,7 @@ class TopicGPT:
         Note:
             Please refer to the TopicPrompting class for more details on available functions for prompting the model.
         """
-
-
+        
         result = self.topic_prompting.general_prompt(query)
 
         answer = result[0][-1].choices[0].message.content
@@ -424,7 +423,6 @@ class TopicGPT:
         with open(path, "wb") as f:
             pickle.dump([self.document_embeddings, self.vocab_embeddings], f)
 
-
     # score funtion
     def score(
             self,   
@@ -434,6 +432,14 @@ class TopicGPT:
         assert self.topic_lis is not None, "You need to extract the topics first. (either by fitting the model or extracting_topics)"
         self.n_intruder_docs = n_intruder_docs
         self.n_docs = n_docs
+        
+        ads = ADS(
+                    n_docs=self.n_docs
+        )
+        ads_score = ads.score(
+                    topics=self.topic_lis, 
+                    tm=self
+                )
 
         adc = ADC(
                     n_intruder_docs=self.n_intruder_docs, 
@@ -441,18 +447,11 @@ class TopicGPT:
                 )
         adc_score = adc.score(
                     topics=self.topic_lis, 
-                    new_embeddings=False
                 )
         
-        ads = ADS()
-        ads_score = ads.score(
-                    topics=self.topic_lis, 
-                    tm=self
-                )
-
         return dict(
-                Average_Document_Similarity = ads_score, 
-                Average_Document_Cohesion = adc_score
+                Average_Document_Similarity = float(ads_score), 
+                Average_Document_Cohesion = float(adc_score)
                 )
     
 

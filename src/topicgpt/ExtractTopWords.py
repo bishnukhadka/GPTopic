@@ -247,6 +247,7 @@ class ExtractTopWords:
             vocab (list[str]): List of words in the corpus sorted alphabetically.
         """
         assert vocab is not None and len(vocab) > 0, "Vocabulary is empty. Cannot embed an empty vocabulary."
+        assert embedder is not None, "Embedder is None. Please provide a valid embedder."
         vocab = sorted(list(set(vocab)))
 
         result = embedder.get_embeddings(vocab)

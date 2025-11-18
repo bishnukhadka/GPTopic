@@ -153,11 +153,9 @@ class Clustering_and_DimRed():
             labels (np.ndarray): Cluster labels.
         """
 
-
         # Reduce dimensionality with UMAP
         reducer = umap.UMAP(n_components=2, random_state = self.random_state, n_neighbors=30, metric="cosine", min_dist=0)
         embeddings_2d = reducer.fit_transform(embeddings)
-
 
         # Create a color palette, then map the labels to the colors.
         # We add one to the number of unique labels to account for the noise points labelled as -1.
