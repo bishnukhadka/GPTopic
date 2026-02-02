@@ -16,3 +16,7 @@ topicgpt-venv
 examples/topic_objs.pkl
 examples/truncated_docs_topic_objs.pkl
 examples/BERTopic_20Newsgroups_openai.zip
+examples/docs_embeddings_KaLM_truncated.npy
+examples/docs_embeddings_KaLM_chunked.npy
+examples/truncated_docs_topic_objs_KaLM.pkl 
+examples/chunked_docs_topic_objs_KaLM.pkl
